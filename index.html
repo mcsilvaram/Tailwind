@@ -114,18 +114,24 @@
               </div>
             </section>
             <!-- Pista 2-->
-             <section class="w-[20%] hover:bg-neutral-600 px-2 py-4 mt-5 rounded-lg">
+            <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
               <div class="flex flex-col items-start space-y-2">
-                <img src="./img_spotify/1/alvaro.png" alt="alvaro" class="w-40 h-40 object-cover rounded-md" />
+                <!-- Imagen con botón flotante -->
+                <div class="relative w-full">
+                  <img src="./img_spotify/1/alleh.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
+                  <!-- Botón de play oculto que aparece al hacer hover -->
+                  <button class="absolute bottom-4 right-2 p-3 rounded-full bg-zinc-900 text-white hover:bg-zinc-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    ▶
+                  </button>
+                </div>
+
+                <!-- Texto de la canción -->
                 <div>
-                  <h4 class="text-base font-bold text-white hover:underline">Tendencia Nacional</h4>
-                  <p class="text-sm text-neutral-400 hover:underline">Caleb Calloway, Alvaro Diaz, Rawayana</p>
+                  <h4 class="text-base font-bold text-white">la culpa (track 11)</h4>
+                  <p class="text-sm text-neutral-400 hover:underline">Alleh, Yorghaki</p>
                 </div>
               </div>
             </section>
-          </div>
-        </div>
-      </section>
 </main>
 
  <!-- LUCIDE ICONS -->
