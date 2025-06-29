@@ -46,51 +46,50 @@
 <main class="flex h-screen bg-neutral-750 text-white">
   <!-- Panel izquierdo (30%) -->
   <aside class="w-[30%] h-[80%] bg-neutral-900 p-3 rounded-lg">
-    <div class="flex items-center justify-between mb-4">
-      <h4 class="text-white text-base font-bold gap-4">Tu biblioteca</h4>
-      <button class="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-900 hover:bg-zinc-700 
-        text-3xl">+
-      </button>
-    </div>         
+        <div class="flex items-center justify-between mb-4">
+          <h4 class="text-white text-base font-bold gap-4">Tu biblioteca</h4>
+          <button class="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-900 hover:bg-zinc-700 
+            text-3xl">+
+          </button>
+        </div>         
     <!-- CONTENEDOR CON SCROLL -->
-    <div class="flex flex-col gap-4 overflow-y-scroll h-[180px] scrollbar-hide">
-      <!-- Recuadro 1 -->
-      <aside class="w-full h-[200px] bg-neutral-800 px-4 py-[20px] rounded-lg mt-[20px]">
-        <h5 class="text-base font-bold text-white py-2">Crea tu primera playlist</h5>
-        <h4 class="text-sm text-neutral-300 gap-2 mb-4">¡Es muy fácil! Te vamos a ayudar</h4>
-        <button class="bg-white px-[15px] py-[5px] text-black font-semibold rounded-full hover:bg-neutral-200 transition">
-          Crear playlist
-        </button>
-      </aside>
+      <div class="flex flex-col gap-4 overflow-y-scroll h-[180px] scrollbar-hide">
+          <!-- Recuadro 1 -->
+          <aside class="w-full h-[200px] bg-neutral-800 px-4 py-[20px] rounded-lg mt-[20px]">
+            <h5 class="text-base font-bold text-white py-2">Crea tu primera playlist</h5>
+            <h4 class="text-sm text-neutral-300 gap-2 mb-4">¡Es muy fácil! Te vamos a ayudar</h4>
+            <button class="bg-white px-[15px] py-[5px] text-black font-semibold rounded-full hover:bg-neutral-200 transition">
+              Crear playlist
+            </button>
+          </aside>
 
-      <!-- Recuadro 2 -->
-      <aside class="w-full h-[200px] bg-neutral-800 px-4 py-[20px] rounded-lg mt-[20px]">
-        <h5 class="text-base font-bold text-white py-2">Busquemos algunos podcasts para seguir</h5>
-        <h4 class="text-sm text-neutral-300 gap-2 mb-4">Te mantendremos al tanto de los nuevos episodios,</h4>
-        <button class="bg-white px-[15px] py-[5px] text-black font-semibold rounded-full hover:bg-neutral-200 transition">
-          Explorar podcasts
-        </button>
-      </aside>
-    </div>
-    <!-- Footer enlaces legales -->
-    <div class="mt-8 space-y-6 text-[11px] text-neutral-400 leading-snug">
-      <div class="flex flex-wrap gap-x-8 gap-y-4">
-        <a href="#" class="hover:underline">Legal</a>
-        <a href="#" class="hover:underline">Seguridad y Centro de Privacidad</a>
-        <a href="#" class="hover:underline">Política de Privacidad</a>
-        <a href="#" class="hover:underline">Cookies</a>
-        <a href="#" class="hover:underline">Sobre los anuncios</a>
-        <a href="#" class="hover:underline">Accesibilidad</a>
-        <a href="#" class="hover:underline">Notice at Collection</a>
-        <a href="#" class="hover:underline">Your Privacy Choices</a>
+          <!-- Recuadro 2 -->
+          <aside class="w-full h-[200px] bg-neutral-800 px-4 py-[20px] rounded-lg mt-[20px]">
+            <h5 class="text-base font-bold text-white py-2">Busquemos algunos podcasts para seguir</h5>
+            <h4 class="text-sm text-neutral-300 gap-2 mb-4">Te mantendremos al tanto de los nuevos episodios,</h4>
+            <button class="bg-white px-[15px] py-[5px] text-black font-semibold rounded-full hover:bg-neutral-200 transition">
+              Explorar podcasts
+            </button>
+          </aside>
       </div>
+      <!-- Footer enlaces legales -->
+      <div class="mt-8 space-y-6 text-[11px] text-neutral-400 leading-snug">
+        <div class="flex flex-wrap gap-x-8 gap-y-4">
+          <a href="#" class="hover:underline">Legal</a>
+          <a href="#" class="hover:underline">Seguridad y Centro de Privacidad</a>
+          <a href="#" class="hover:underline">Política de Privacidad</a>
+          <a href="#" class="hover:underline">Cookies</a>
+          <a href="#" class="hover:underline">Sobre los anuncios</a>
+          <a href="#" class="hover:underline">Accesibilidad</a>
+          <a href="#" class="hover:underline">Notice at Collection</a>
+          <a href="#" class="hover:underline">Your Privacy Choices</a>
+        </div>
 
-      <!-- Botón de idioma -->
-      <button class="mt-4 flex items-center gap-2 border border-neutral-400 rounded-full px-3 py-1 text-sm hover:border-white transition">
-        <i data-lucide="globe" class="w-4 h-4"></i>
-        Español de Latinoamérica
-      </button>
-    </div>
+        <!-- Botón de idioma -->
+        <button class="mt-4 flex items-center gap-2 border border-neutral-400 rounded-full px-3 py-1 text-sm hover:border-white transition">
+          <i data-lucide="globe" class="w-4 h-4"></i>
+          Español de Latinoamérica
+        </button>
   </aside>
 
       <!-- Panel derecho (70%) -->     
@@ -101,37 +100,20 @@
         </div>
 
         <div class="mt-2 space-y-4 font-semibold text-sm text-neutral-400 leading-snug">
-          <div class="flex flex-wrap gap-x-8 gap-y-4">
-            <!-- Carousel de canciones -->
-             <!-- Pista 1-->
-             <section class="w-[20%] hover:bg-neutral-600 px-2 py-4 mt-5 rounded-lg">
-              <div class="flex flex-col items-start space-y-2">
-                <img src="./img_spotify/1/alleh.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                <div>
-                  <h4 class="text-base font-bold text-white hover:underline">La culpa (track 11)</h4>
-                  <p class="text-sm text-neutral-400 hover:underline">Alleh, Yorghaki</p>
-                </div>
-              </div>
-            </section>
-            <!-- Pista 2-->
-            <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-              <div class="flex flex-col items-start space-y-2">
-                <!-- Imagen con botón flotante -->
-                <div class="relative w-full">
-                  <img src="./img_spotify/1/alleh.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                  <!-- Botón de play oculto que aparece al hacer hover -->
-                  <button class="absolute bottom-4 right-2 p-3 rounded-full bg-zinc-900 text-white hover:bg-zinc-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    ▶
-                  </button>
-                </div>
-
-                <!-- Texto de la canción -->
-                <div>
-                  <h4 class="text-base font-bold text-white">la culpa (track 11)</h4>
-                  <p class="text-sm text-neutral-400 hover:underline">Alleh, Yorghaki</p>
-                </div>
-              </div>
-            </section>
+          <!-- Carousel de canciones -->
+            <div id="canciones" class="flex flex-wrap gap-x-1 gap-y-1"></div>               
+        </div> 
+        <script>
+          // Carga dinámica de canciones.html
+          fetch('can_dmomento.html')
+            .then(res => res.text())
+            .then(html => {
+              document.getElementById('canciones').innerHTML = html;
+              lucide.createIcons(); // reactivar los iconos si hay nuevos
+            })
+            .catch(err => console.error('Error cargando canciones:', err));
+        </script>
+      </section>
 </main>
 
  <!-- LUCIDE ICONS -->
@@ -149,6 +131,7 @@
         scrollbar-width: none;
       }
     </style>
+
 
 
 </html>
