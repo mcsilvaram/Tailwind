@@ -16,6 +16,7 @@
         scrollbar-width: none;
       }
     </style>
+    
 </head>   
  <body class="bg-black flex flex-col">
     <nav class="px-4 py-1 flex justify-between items-center sticky top-0">
@@ -80,6 +81,7 @@
         </button>
       </aside>
     </div>
+
     <!-- Footer enlaces legales -->
     <div class="mt-8 space-y-6 text-[11px] text-neutral-400 leading-snug">
       <div class="flex flex-wrap gap-x-8 gap-y-4">
@@ -109,27 +111,62 @@
     </div>
 
     <div class="mt-2 space-y-4 font-semibold text-sm text-neutral-400 leading-snug">
-      <!-- Carousel de canciones -->
-      <div id="canciones" class="flex flex-wrap gap-x-1 gap-y-1"></div>
+       <!-- Carousel de canciones -->
+        <!-- Carousel con flechas -->
+        <div class="relative">
+          
+          <button onclick="scrollCanciones(-300)" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-neutral-900 
+             hover:bg-neutral-700 text-white p-2 rounded-full shadow-md"><</button>
+
+          <!-- Contenedor con scroll horizontal -->
+          <div id="scrollContainer" class="overflow-x-auto scrollbar-hide scroll-smooth">
+            <div id="canciones" class="flex gap-x-1 min-w-max px-5"></div>
+          </div>
+          
+          <button onclick="scrollCanciones(300)" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-neutral-900 
+           hover:bg-neutral-700 text-white p-2 rounded-full shadow-md">></button>
+        </div>
+        <div class="overflow-x-auto scrollbar-hide">
+          <div id="canciones" class="flex gap-4 min-w-max"></div>
+        </div> 
     </div>
   </section>
 </main>
+<!-- Scroll de flechas de canciones -->
+  <script>
+  function scrollCanciones(distance) {
+    const container = document.getElementById('scrollContainer');
+    container.scrollBy({ left: distance, behavior: 'smooth' });
+  }
+  </script>
+<!-- despliegue de carteles de canciones -->  
+  <script src="songmoment-data.js"></script>
+  <script>
+    const contenedor = document.getElementById("canciones");
+    canciones.forEach((cancion) => {
+      const section = document.createElement("section");
+      section.className = "w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative";
+      section.innerHTML = `
+        <div class="flex flex-col items-start space-y-2">
+          <div class="relative w-full">
+            <img src="${cancion.imagen}" alt="${cancion.alt}" class="w-40 h-40 object-cover rounded-md" />
+            <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-white">${cancion.titulo}</h4>
+            <p class="text-sm text-neutral-400 hover:underline">${cancion.artistas}</p>
+          </div>
+        </div>
+      `;
+      contenedor.appendChild(section);
+    });
 
- <!-- Script para cargar dinámicamente las canciones -->
-<script>
-  fetch('songmoment.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('canciones').innerHTML = html;
-      lucide.createIcons(); // reactivar los iconos si hay nuevos
-    })
-    .catch(err => console.error('Error cargando canciones:', err));
-</script>
-
-<!-- LUCIDE ICONS -->
-<script>
-  lucide.createIcons();
-</script>      
+    lucide.createIcons();
+  </script>
   
 </body>
 </html>
