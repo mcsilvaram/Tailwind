@@ -135,7 +135,7 @@
         <a href="#" class="text-sm text-neutral-400 font-semibold hover:underline">Mostrar todo</a>
       </div>
       <!-- Carousel Artistas Populares -->
-      <div class="relative h-full">
+      <div class="relative h-full group">
         <button onclick="scrollArtistas(-300)"
          class="hidden group-hover:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 
             bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
@@ -196,7 +196,7 @@
 <!-- Scroll de flechas de artistas -->
 <script>
   function scrollArtistas(scrollAmount) {
-    const container = document.getElementById("scrollContainer");
+    const container = document.getElementById("scrollArtistasContainer");
     container.scrollBy({ left: scrollAmount, behavior: "smooth" });
   }
 </script>
