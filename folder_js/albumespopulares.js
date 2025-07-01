@@ -1,0 +1,53 @@
+// albumespopulares.js
+const albumespopulares = [
+  {  //1
+    nombre: "DeBí TIRAR MáS FOToS Bad Bunny",
+    imagen: "./img_spotify/3/BeBin.png",
+    alt: "DeBí TIRAR MáS FOToS Bad Bunny",
+  },
+  {  //2    
+    nombre: "BORONDO Beele",
+    imagen: "./img_spotify/3/BORONDO.png",
+    alt: "BORONDO Beele",
+  },
+  {  //3
+    nombre: "LO MISMO DE SIEMPRE Mora",
+    imagen: "./img_spotify/3/LOMISMO.png",
+    alt: "LO MISMO DE SIEMPRE",
+  },
+  {  //4    
+    nombre: "Un Verano Sin Ti Bad Bunny",
+    imagen: "./img_spotify/3/Un Verano.png",
+    alt: "Un Verano Sin Ti",
+  },
+  {  //5    
+    nombre: "LA CIUDAD Alleh, Yorghaki",
+    imagen: "./img_spotify/3/LA CIUDAD.png",
+    alt: "LA CIUDAD Alleh, Yorghaki",
+  },
+  {  //6   
+    nombre: "PRIMERA MUSA Omar Courtz",
+    imagen: "./img_spotify/3/PRIMERAMUSA.png",
+    alt: "PRIMERA MUSA",
+  },
+  {  //7    
+    nombre: "Private Suite (Vol.2) ROA",
+    imagen: "./img_spotify/3/PrivateSuite.png",
+    alt: "Private Suite",
+  },
+  {  //8    
+    nombre: "Cosa Nuestra Rauw Alejandro",
+    imagen: "./img_spotify/3/Cosa Nuestra.png",
+    alt: "Cosa Nuestra",
+  },
+  {  //9    
+    nombre: "MAÑANA SERA BONITO Karol G",
+    imagen: "./img_spotify/3/MAÑANA SERA.png",
+    alt: "MAÑANA SERA BONITO",
+  },
+  {  //10
+    nombre: "La Plena (W Sound 05) W Sound, Beéle, Ovy On The Drums",
+    imagen: "./img_spotify/3/La Plena.png",
+    alt: "La Plena (W Sound 05)",
+  }
+];
