@@ -1,14 +1,14 @@
 // albumespopulares.js
 const albumespopulares = [
   {  //1
-    nombre: "DeBí TIRAR MáS FOToS Bad Bunny",
-    imagen: "./img_spotify/3/BeBin.png",
-    alt: "DeBí TIRAR MáS FOToS Bad Bunny",
+    nombre: "DeBi TIRAR MáS FOToS Bad Bunny",
+    imagen: "./img_spotify/3/BeBe.png",
+    alt: "TIRAR MáS FOToS Bad Bunny",
   },
   {  //2    
     nombre: "BORONDO Beele",
     imagen: "./img_spotify/3/BORONDO.png",
-    alt: "BORONDO Beele",
+    alt: "BORONDO",
   },
   {  //3
     nombre: "LO MISMO DE SIEMPRE Mora",
