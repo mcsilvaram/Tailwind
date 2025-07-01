@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="./folder_js/songmoment-data.js"></script>
     <script src="./folder_js/artistas.js"></script>
+    <script src="./folder_js/albumespopulares.js"></script>
     <style>
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
@@ -149,6 +150,27 @@
             bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
             items-center justify-center rounded-full shadow-md hidden group-hover:flex">></button>
       </div>
+    
+     <!-- Albumes y sencillos populares-->
+      <div class="flex justify-between items-center mb-4 hidden lg:flex">
+        <h2 class="text-white font-bold text-2xl">Albumes y sencillos populares</h2>
+        <a href="#" class="text-sm text-neutral-400 font-semibold hover:underline">Mostrar todo</a>
+      </div>
+      <!-- Carousel Albumes y sencillos populares -->
+      <div class="relative w-full group">
+        <button onclick="scrollalbumespopulares(-300)"
+         class="absolute left-2 top-1/2 -translate-y-1/2 z-20 
+            bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
+            items-center justify-center rounded-full shadow-md hidden group-hover:flex"><</button>
+            <!-- Contenedor con scroll horizontal -->
+              <div id="scrollalbumespopulares" class="overflow-x-auto scrollbar-hide scroll-smooth px-12">
+                <div id="albumespopulares" class="flex gap-x-4"></div>
+              </div>            
+        <button onclick="scrollalbumespopulares(300)" 
+        class="absolute right-2 top-1/2 -translate-y-1/2 z-20 
+            bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
+            items-center justify-center rounded-full shadow-md hidden group-hover:flex">></button>
+      </div>
 
   </section>  
 </main>
@@ -231,6 +253,45 @@
 
   lucide.createIcons?.();
 </script>
-  
+
+<!-- Scroll de flechas de Albumes Populares -->
+<script>
+  function scrollalbumespopulares(scrollAmount) {
+    const container = document.getElementById("scrollalbumespopulares");
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  }
+</script>
+<!-- despliegue de carteles de Albumes Populares -->
+ <script>
+ const contenedoralbumespopulares = document.getElementById("albumespopulares");
+
+  albumespopulares.forEach((album) => {
+    const section = document.createElement("section");
+    section.className =
+      "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
+
+    section.innerHTML = `
+      <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+        <div class="relative full">
+          <img src="${album.imagen}" alt="${album.alt}" class="rounded-md w-full h-auto" />
+          <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full flex 
+            items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-2">
+          <h4 class="text-base font-bold text-white">${album.nombre}</h4>
+          <p class="text-sm text-neutral-400 hover:underline">${album.alt}</p>
+        </div>
+      </div>
+    `;
+    contenedoralbumespopulares.appendChild(section);
+  });
+
+  lucide.createIcons?.();
+</script>
+
 </body>
 </html>
