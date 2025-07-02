@@ -1,5 +1,5 @@
 // estaciones.js
-const estacionespopulares = [
+const estaciones = [
   {  //1
     nombre: "Con ELENE ROSE, Vicente Garcia,...",
     imagen: "./img_spotify/4/Con ELENE.png",
