@@ -17,12 +17,12 @@ const albumespopulares = [
   },
   {  //4    
     nombre: "Un Verano Sin Ti Bad Bunny",
-    imagen: "./img_spotify/3/Un Verano.png",
+    imagen: "./img_spotify/3/Un_Verano.png",
     alt: "Un Verano Sin Ti",
   },
   {  //5    
     nombre: "LA CIUDAD Alleh, Yorghaki",
-    imagen: "./img_spotify/3/LA CIUDAD.png",
+    imagen: "./img_spotify/3/LA_CIUDAD.png",
     alt: "LA CIUDAD Alleh, Yorghaki",
   },
   {  //6   
@@ -37,17 +37,17 @@ const albumespopulares = [
   },
   {  //8    
     nombre: "Cosa Nuestra Rauw Alejandro",
-    imagen: "./img_spotify/3/Cosa Nuestra.png",
+    imagen: "./img_spotify/3/Cosa_Nuestra.png",
     alt: "Cosa Nuestra",
   },
   {  //9    
     nombre: "MAÑANA SERA BONITO Karol G",
-    imagen: "./img_spotify/3/MAÑANA SERA.png",
+    imagen: "./img_spotify/3/MAÑANA_SERA.png",
     alt: "MAÑANA SERA BONITO",
   },
   {  //10
     nombre: "La Plena (W Sound 05) W Sound, Beéle, Ovy On The Drums",
-    imagen: "./img_spotify/3/La Plena.png",
+    imagen: "./img_spotify/3/La_Plena.png",
     alt: "La Plena (W Sound 05)",
   }
 ];
