@@ -12,7 +12,7 @@ const masescuchado = [
   },
   {  //3
     nombre: "Los éxitos de hoy en un solo lugar! En...",
-    imagen: "./img_spotify/6/Con Camilo.png",
+    imagen: "./img_spotify/6/DelaCalle.png",
     alt: "Los éxitos",
   },
   {  //4    
