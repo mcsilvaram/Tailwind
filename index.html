@@ -312,78 +312,71 @@
 
 <!-- 3. Scroll de flechas de Albumes Populares -->
     <script>
-      function scrollalbumespopulares(scrollAmount) {
-        const container = document.getElementById("scrollalbumespopulares");
-        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
-      }
-    </script>
+            const contenedoralbumespopulares = document.getElementById("albumespopulares");
 
-<!-- despliegue de carteles de Estaciones Populares -->
- <script>
- const contenedoralbumespopulares = document.getElementById("estaciones");
+            albumespopulares.forEach((album) => {
+              const section = document.createElement("section");
+              section.className =
+                "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
 
-  estaciones.forEach((album) => {
-    const section = document.createElement("section");
-    section.className =
-      "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
+              section.innerHTML = `
+                <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+                  <div class="relative full">
+                    <img src="${album.imagen}" alt="${album.alt}" class="rounded-md w-full h-auto" />
+                    <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full flex 
+                      items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="mt-2">
+                    <h4 class="text-base font-bold text-white">${album.nombre}</h4>
+                    <p class="text-sm text-neutral-400 hover:underline">${album.alt}</p>
+                  </div>
+                </div>
+              `;
+              contenedoralbumespopulares.appendChild(section);
+            });
 
-    section.innerHTML = `
-      <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
-        <div class="relative full">
-          <img src="${z.imagen}" alt="${album.alt}" class="rounded-md w-full h-auto" />
-          <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full flex 
-            items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
-        </div>
-        <div class="mt-2">
-          <h4 class="text-base font-bold text-white">${album.nombre}</h4>
-          <p class="text-sm text-neutral-400 hover:underline">${album.alt}</p>
-        </div>
-      </div>
-    `;
-    contenedoralbumespopulares.appendChild(section);
-  });
+          lucide.createIcons?.();
+         </script>
 
-  lucide.createIcons?.(); 
-</script>
-<!-- Scroll lista de destacadas -->
-<script>
-  const contenedorlistasdestacadas = document.getElementById("listasdestacadas");
+<!-- 4. Scroll lista de destacadas -->
+      <script>
+        const contenedorlistasdestacadas = document.getElementById("listasdestacadas");
 
-  listasdestacadas.forEach((lista) => {
-    const section = document.createElement("section");
-    section.className = "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 
-     group relative";
+        listasdestacadas.forEach((lista) => {
+          const section = document.createElement("section");
+          section.className = "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 
+          group relative";
 
-    section.innerHTML = `
-      <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
-        <div class="relative full">
-          <img src="${lista.imagen}" alt="${lista.alt}" class="rounded-md w-full h-auto" />
-          <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full 
-           flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity 
-           duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" 
-             fill="currentColor"><path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
-        </div>
-        <div class="mt-2">
-          <h4 class="text-base font-bold text-white">${lista.nombre}</h4>
-          <p class="text-sm text-neutral-400 hover:underline">${lista.alt}</p>
-        </div>
-      </div>
-    `;
-    contenedorlistasdestacadas.appendChild(section);
-  });
+          section.innerHTML = `
+            <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+              <div class="relative full">
+                <img src="${lista.imagen}" alt="${lista.alt}" class="rounded-md w-full h-auto" />
+                <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full 
+                flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity 
+                duration-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" 
+                  fill="currentColor"><path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+              </div>
+              <div class="mt-2">
+                <h4 class="text-base font-bold text-white">${lista.nombre}</h4>
+                <p class="text-sm text-neutral-400 hover:underline">${lista.alt}</p>
+              </div>
+            </div>
+          `;
+          contenedorlistasdestacadas.appendChild(section);
+        });
 
-  lucide.createIcons?.();
- </script>
+        lucide.createIcons?.();
+      </script>
 
-<!-- Scroll de flechas de mas escuchados -->
-    <script>
+<!-- 5. Scroll de flechas de mas escuchados -->
+  <script>
     const contenedormasescuchado = document.getElementById("masescuchado");
 
     masescuchado.forEach((item) => {
