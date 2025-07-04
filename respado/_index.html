@@ -1,55 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Spotify Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="./folder_js/songmoment-data.js"></script>
+    <script src="./folder_js/artistas.js"></script>
+    <script src="./folder_js/albumespopulares.js"></script>
+    <script src="./folder_js/listasdestacadas.js"></script>
+    <script src="./folder_js/masescuchado.js"></script>
+    <script src="./folder_js/estaciones.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+    
 </head>   
  <body class="bg-black flex flex-col">
-    <nav class="px-4 py-1 flex justify-between items-center sticky top-0">
-       <div class="flex items-center gap-4">
-            <!--logo spotify -->
-            <svg viewBox="0 0 168 168" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-white">
+    <nav class="px-4 py-2 flex justify-between items-center sticky top-0 z-50 bg-black gap-1">
+       <div class="flex items-center gap-1">
+          <!--logo spotify -->
+          <svg viewBox="0 0 168 168" xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 fill-white">
             <path d="M84 0C37.7 0 0 37.7 0 84s37.7 84 84 84 84-37.7 84-84S130.3 0 84 0zm38.4 121.2c-1.5 2.4-4.7 3.1-7.1 1.7-19.5-11.9-44.1-14.6-73.2-8.2-2.7.6-5.4-1.1-6.1-3.8-.6-2.7 1.1-5.4 3.8-6.1 32.5-7 60-4 82.3 9.3 2.4 1.5 3.1 4.7 1.7 7.1zm10.2-20.5c-1.9 3-5.8 3.9-8.8 2-22.4-13.6-56.6-17.5-83.1-9.8-3.3.9-6.7-1-7.6-4.3s1-6.7 4.3-7.6c31.9-8.6 70-4.2 96.1 11.3 3 1.8 4 5.7 2.1 8.4zm.9-21.9c-26.1-15.6-69.2-17-94-9.5-3.8 1.1-7.7-1.1-8.8-5s1.1-7.7 5-8.8c29.7-8.7 78-7 108.3 11.1 3.5 2.1 4.6 6.7 2.5 10.2-2.1 3.6-6.6 4.7-10.2 2.4z"/>
-            </svg>
-            <!-- Boton con icono-casa -->         
-            <button class="p-3 rounded-full bg-zinc-900 hover:bg-zinc-700">
+          </svg>
+          
+          <!-- Boton con icono-casa -->         
+          <button class="p-3 rounded-full bg-zinc-800 hover:bg-zinc-700">
             <i data-lucide="home" class="w-7 h-7 text-white"></i>
-            </button> 
-            <!-- Barra de Busqueda -->
-            <div class="flex items-center bg-zinc-900 p-[10px] rounded-full w-[450px] hover:scale-[100%] hover:bg-zinc-600">
-                <i data-lucide="search" class="w-6 h-6 text-zinc-400"></i>
-                <input type="text" placeholder="¿Qué quieres reproducir?" class="text-neutral-400 font-semibold hover:text-white placeholder-zinc-400 focus:outline-none px-2 w-full">
-                <p class="text-neutral-400 text-lg">│</p>         
-                <i data-lucide="archive" class="w-6 h-6 text-zinc-400"></i>
-            </div> 
+          </button> 
+          
+          <!-- Barra de Busqueda -->
+          <div class="flex items-center bg-zinc-800 p-[10px] rounded-full w-[450px] hover:scale-[100%] hover:bg-zinc-600">
+            <i data-lucide="search" class="w-6 h-6 text-zinc-400"></i>
+            <input type="text" placeholder="¿Qué quieres reproducir?" class="text-neutral-400 font-semibold hover:text-white placeholder-zinc-400 focus:outline-none px-2 w-full">
+            <p class="text-neutral-400 text-lg">│</p>         
+            <i data-lucide="archive" class="w-6 h-6 text-zinc-400"></i>
+          </div> 
         </div>
         <div class="flex items-center gap-4">
-            <div class="flex items-center gap-2 hidden lg:flex">
-                <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Premium</p>
-                <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Asistencia</p>
-                <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Descarga</p>
-            </div>
-            <p class="text-neutral-400 text-lg">│</p>
-            <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Instalar app</p>
-            <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Registrarse</p>  
-            <button class="bg-white px-[20px] py-[10px] text-black font-semibold rounded-full hover:scale-[105%] hover:bg-neutral-200">Iniciar Sesión</button>
-            <div class="bg-white p-[20px] flex lg:hidden"></div>       
+          <div class="flex items-center gap-2 hidden lg:flex">
+            <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Premium</p>
+            <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Asistencia</p>
+            <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Descarga</p>
+          </div>
+          <p class="text-neutral-400 text-lg">│</p>
+          <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Instalar app</p>
+          <p class="text-neutral-400 font-semibold hover:text-white text-lg cursor-pointer">Registrarse</p>  
+          <button class="bg-white px-[20px] py-[10px] text-black font-semibold rounded-full hover:scale-[105%] hover:bg-neutral-200">Iniciar Sesión</button>
+          <div class="bg-white p-[20px] flex lg:hidden"></div>       
         </div>
-    </nav>      
+    </nav>        
 
-   
-</body>
-<main class="flex h-screen bg-neutral-750 text-white">
+<main class="flex bg-neutral-750 text-white p-1 gap-1">
   <!-- Panel izquierdo (30%) -->
-  <aside class="w-[30%] h-[80%] bg-neutral-900 p-3 rounded-lg">
+  <aside class="sticky top-20 w-[30%] h-[500px] bg-neutral-900 p-2 rounded-lg z-40">
     <div class="flex items-center justify-between mb-4">
       <h4 class="text-white text-base font-bold gap-4">Tu biblioteca</h4>
-      <button class="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-900 hover:bg-zinc-700 
-        text-3xl">+
+      <button class="w-8 h-8 flex items-center justify-center rounded-full bg-zinc-900 hover:bg-zinc-700 text-3xl">+
       </button>
     </div>         
     <!-- CONTENEDOR CON SCROLL -->
@@ -72,6 +87,7 @@
         </button>
       </aside>
     </div>
+
     <!-- Footer enlaces legales -->
     <div class="mt-8 space-y-6 text-[11px] text-neutral-400 leading-snug">
       <div class="flex flex-wrap gap-x-8 gap-y-4">
@@ -90,481 +106,362 @@
         <i data-lucide="globe" class="w-4 h-4"></i>
         Español de Latinoamérica
       </button>
-    </div>
+    </div>  
   </aside>
 
-      <!-- Panel derecho (70%) -->     
-      <section class="w-[70%] bg-neutral-800 p-6 ml-2 rounded-lg">
+  <!-- Panel derecho (70%) -->  
+  <!-- 1. Canciones del Momento -->    
+  <section class="w-[70%] h-[3000px] bg-neutral-900 p-6 ml-2 rounded-lg">
+      <div class="flex justify-between items-center mb-4 hidden lg:flex">
+        <h2 class="text-white font-bold text-2xl">Canciones del momento</h2>
+        <a href="#" class="text-sm text-neutral-400 font-semibold hover:underline">Mostrar todo</a>
+      </div>
+
+      <!-- Carousel de canciones de momento -->
+      <div class="relative group w-[full]">
+        <button onclick="scrollCanciones(-300)" 
+        class="hidden group-hover:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 
+            bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
+            items-center justify-center rounded-full shadow-md"><</button>
+            <!-- Contenedor con scroll horizontal -->
+              <div id="scrollContainer" class="overflow-x-auto scrollbar-hide scroll-smooth">
+                <div id="canciones" class="flex gap-x-2 min-w-max px-2"></div>
+              </div>            
+        <button onclick="scrollCanciones(300)" 
+        class="hidden group-hover:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 
+            bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
+            items-center justify-center rounded-full shadow-md">></button>
+      </div>
+
+    <!-- 2. Artistas Populares-->
+      <div class="flex justify-between items-center mb-4 hidden lg:flex">
+        <h2 class="text-white font-bold text-2xl">Artistas Populares</h2>
+        <a href="#" class="text-sm text-neutral-400 font-semibold hover:underline">Mostrar todo</a>
+      </div>
+      <!-- Carousel Artistas Populares -->
+      <div class="relative w-full group">
+        <button onclick="scrollArtistas(-300)"
+         class="absolute left-2 top-1/2 -translate-y-1/2 z-20 
+            bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
+            items-center justify-center rounded-full shadow-md hidden group-hover:flex"><</button>
+            <!-- Contenedor con scroll horizontal -->
+              <div id="scrollArtistasContainer" class="overflow-x-auto scrollbar-hide scroll-smooth px-12">
+                <div id="artistas" class="flex gap-x-4"></div>
+              </div>            
+        <button onclick="scrollArtistas(300)" 
+        class="absolute right-2 top-1/2 -translate-y-1/2 z-20 
+            bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
+            items-center justify-center rounded-full shadow-md hidden group-hover:flex">></button>
+      </div>
+    
+     <!-- 3. Albumes y sencillos populares-->
+      <div class="flex justify-between items-center mb-4 hidden lg:flex">
+        <h2 class="text-white font-bold text-2xl">Albumes y sencillos populares</h2>
+        <a href="#" class="text-sm text-neutral-400 font-semibold hover:underline">Mostrar todo</a>
+      </div>
+      <!-- Carousel Albumes y sencillos populares -->
+      <div class="relative w-full group">
+        <button onclick="scrollalbumespopulares(-300)"
+         class="absolute left-2 top-1/2 -translate-y-1/2 z-20 
+            bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
+            items-center justify-center rounded-full shadow-md hidden group-hover:flex"><</button>
+            <!-- Contenedor con scroll horizontal -->
+              <div id="scrollalbumespopulares" class="overflow-x-auto scrollbar-hide scroll-smooth px-12">
+                <div id="albumespopulares" class="flex gap-x-4"></div>
+              </div>            
+        <button onclick="scrollalbumespopulares(300)" 
+        class="absolute right-2 top-1/2 -translate-y-1/2 z-20 
+            bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 
+            items-center justify-center rounded-full shadow-md hidden group-hover:flex">></button>
+      </div>
+
+    <!-- 4. Estaciones Populares -->
+      <div class="flex justify-between items-center mb-4 hidden lg:flex">
+        <h2 class="text-white font-bold text-2xl">Estaciones populares</h2>
+        <a href="#" class="text-sm text-neutral-400 font-semibold hover:underline">Mostrar todo</a>
+      </div>
+
+      <div class="relative group w-full">
+        <button onclick="scrollEstaciones(-300)"
+          class="hidden group-hover:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-neutral-900 hover:bg-neutral-700 
+          text-[25px] text-white w-10 h-10 items-center justify-center rounded-full shadow-md"><</button>
+            <div id="scrollEstacionesContainer" class="overflow-x-auto scrollbar-hide scroll-smooth">
+              <div id="estaciones" class="flex gap-x-2 min-w-max px-2"></div>
+            </div>
+        <button onclick="scrollEstaciones(300)"
+          class="hidden group-hover:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-neutral-900 hover:bg-neutral-700
+           text-[25px] text-white w-10 h-10 items-center justify-center rounded-full shadow-md">> </button>
+      </div>
+
+    <!-- 5. Listas destacadas -->
+      <div class="flex justify-between items-center mb-4 hidden lg:flex">
+        <h2 class="text-white font-bold text-2xl">Listas destacadas</h2>
+        <a href="#" class="text-sm text-neutral-400 font-semibold hover:underline">Mostrar todo</a>
+      </div>
+        <!-- Carousel Listas destacadas -->
+        <div class="relative w-full group">
+          <button onclick="scrolllistasdestacadas(-300)" class="absolute left-2 top-1/2 -translate-y-1/2 
+            z-20 bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 items-center 
+            justify-center rounded-full shadow-md hidden group-hover:flex"><</button>          
+            <div id="scrolllistasdestacadas" class="overflow-x-auto scrollbar-hide scroll-smooth px-12">
+              <div id="listasdestacadas" class="flex gap-x-4"></div>
+            </div>
+          <button onclick="scrolllistasdestacadas(300)" class="absolute right-2 top-1/2 -translate-y-1/2 
+            z-20 bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 items-center 
+            justify-center rounded-full shadow-md hidden group-hover:flex">></button>
+        </div>
+
+    <!-- 6. Lo más escuchado -->
         <div class="flex justify-between items-center mb-4 hidden lg:flex">
-          <h2 class="text-white font-bold text-2xl">Canciones del momento</h2>
+          <h2 class="text-white font-bold text-2xl">Lo más escuchado</h2>
           <a href="#" class="text-sm text-neutral-400 font-semibold hover:underline">Mostrar todo</a>
         </div>
 
-        <div class="mt-2 space-y-4 font-semibold text-sm text-neutral-400 leading-snug">
-          <div class="flex flex-wrap gap-x-1 gap-y-1">
-            <!-- Carousel de canciones -->
+        <!-- Carousel Lo más escuchado -->
+        <div class="relative w-full group">
+          <button onclick="scrollmasescuchado(-300)" class="absolute left-2 top-1/2 -translate-y-1/2 
+           z-20 bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 items-center 
+           justify-center rounded-full shadow-md hidden group-hover:flex"><</button>          
+            <div id="scrollmasescuchado" class="overflow-x-auto scrollbar-hide scroll-smooth px-12">
+              <div id="masescuchado" class="flex gap-x-4"></div>
+            </div>
+          <button onclick="scrollmasescuchado(300)" class="absolute right-2 top-1/2 -translate-y-1/2 
+           z-20 bg-neutral-900 hover:bg-neutral-700 text-[25px] text-white w-10 h-10 items-center 
+           justify-center rounded-full shadow-md hidden group-hover:flex">></button>
+        </div>
 
-              <!-- Pista 1-->
-              <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                <div class="flex flex-col items-start space-y-2">
-                  <!-- Imagen con botón flotante -->
-                  <div class="relative w-full">
-                    <img src="./img_spotify/1/alleh.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                    <!-- Botón de play oculto que aparece al hacer hover -->    
-                      <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </button> 
-                  </div>  
-                    <!-- Texto de la canción -->
-                      <div>
-                        <h4 class="text-base font-bold text-white">la culpa (track 11)</h4>
-                        <p class="text-sm text-neutral-400 hover:underline">Alleh, Yorghaki</p>
-                      </div>
-                </div>  
-              </section>
-
-              <!-- Pista 2-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/alvaro.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Tendencia Nacional</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Caleb Calloway, Alvaro Diaz, Rawayana</p>
-                          </div>
-                      </div>
-                </section>
-              
-              <!-- Pista 3-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 4-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 5-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 6-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 7-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 8-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 9-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 10-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 11-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 12-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 13-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 14-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 15-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 16-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 17-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 18-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 19-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-                <!-- Pista 20-->
-                <section class="w-[20%] px-2 py-4 mt-5 rounded-lg bg-neutral-800 hover:bg-neutral-700 group relative">
-                  <div class="flex flex-col items-start space-y-2">
-                    <!-- Imagen con botón flotante -->
-                      <div class="relative w-full">
-                        <img src="./img_spotify/1/austin.png" alt="alleh" class="w-40 h-40 object-cover rounded-md" />
-                        <!-- Botón de play oculto que aparece al hacer hover -->    
-                          <button class="absolute bottom-4 right-2 p-2 rounded-full bg-green-600 text-white hover:bg-green-600 
-                            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                      </div>    
-                        <!-- Texto de la canción -->
-                          <div>
-                            <h4 class="text-base font-bold text-white">Gohan y Goku Arcangel</h4>
-                            <p class="text-sm text-neutral-400 hover:underline">Austin San</p>
-                          </div>
-                      </div>
-                </section>
-
-
-                
-
-          </div>
-        </div>  
+  </section>  
 </main>
 
- <!-- LUCIDE ICONS -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+<!-- 1. Scroll de flechas de canciones -->
+  <script>
+    function scrollCanciones(distance) {
+      const container = document.getElementById('scrollContainer');
+      container.scrollBy({ left: distance, behavior: 'smooth' });
+    }
+  </script>
+  <!-- despliegue de carteles de canciones -->  
+  <script>
+    const contenedor = document.getElementById("canciones");
+
+    canciones.forEach((cancion) => {
+      const section = document.createElement("section");
+      section.className =
+        "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
+
+      section.innerHTML =`
+        <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+          <div class="relative full">
+            <img src="${cancion.imagen}" alt="${cancion.alt}" class="rounded-md w-full h-auto" />
+            <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full rounded-full flex 
+              items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </button>
+          </div>
+          <div class="mt-2">
+            <h4 class="text-base font-bold text-white justify-content">${cancion.titulo}</h4>
+            <p class="text-sm text-neutral-400 hover:underline">${cancion.artistas}</p>
+          </div>
+        </div>
+      `;
+      contenedor.appendChild(section);
+    });
+    lucide.createIcons();
+  </script>
+
+<!-- 2. Scroll de flechas de artistas -->
+  <script>
+      function scrollArtistas(scrollAmount) {
+        const container = document.getElementById("scrollArtistasContainer");
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+  </script>
+      <!-- despliegue de carteles de artistas -->
+        <script>
+          const contenedorArtistas = document.getElementById("artistas");
+
+          artistas.forEach((artista) => {
+            const section = document.createElement("section");
+            section.className =
+              "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
+
+            section.innerHTML = `
+              <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+                <div class="relative full">
+                  <img src="${artista.imagen}" alt="${artista.alt}" class="rounded-md w-full h-auto" />
+                  <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full flex 
+                    items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="mt-2">
+                  <h4 class="text-base font-bold text-white">${artista.nombre}</h4>
+                  <p class="text-sm text-neutral-400 hover:underline">${artista.descripcion}</p>
+                </div>
+              </div>
+            `;
+            contenedorArtistas.appendChild(section);
+          });
+
+          lucide.createIcons?.();
+   </script>
+
+<!-- 3. Scroll de flechas de Albumes Populares -->
     <script>
-        lucide.createIcons();
+      function scrollalbumespopulares(scrollAmount) {
+        const container = document.getElementById("scrollalbumespopulares"); 
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
     </script>
- <!-- SCROLL RECUADROS -->
-    <style>
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-      }
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
 
+    <script>
+            const contenedoralbumespopulares = document.getElementById("albumespopulares");
 
+            albumespopulares.forEach((album) => {
+              const section = document.createElement("section");
+              section.className =
+                "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
+
+              section.innerHTML = `
+                <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+                  <div class="relative full">
+                    <img src="${album.imagen}" alt="${album.alt}" class="rounded-md w-full h-auto" />
+                    <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full flex 
+                      items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="mt-2">
+                    <h4 class="text-base font-bold text-white">${album.nombre}</h4>
+                    <p class="text-sm text-neutral-400 hover:underline">${album.alt}</p>
+                  </div>
+                </div>
+              `;
+              contenedoralbumespopulares.appendChild(section);
+            });
+
+          lucide.createIcons?.();
+         </script>
+
+<!-- 4. Scroll de Estaciones populares -->
+        <script>
+          function scrollEstaciones(scrollAmount) {
+            const container = document.getElementById("scrollEstacionesContainer");
+            container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+          }
+        </script> 
+
+          <script>
+            const contenedorEstaciones = document.getElementById("estaciones");
+
+            estaciones.forEach((lista) => {
+              const section = document.createElement("section");
+              section.className = "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
+
+              section.innerHTML = `
+                <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+                  <div class="relative full">
+                    <img src="${lista.imagen}" alt="${lista.alt}" class="rounded-md w-full h-auto" />
+                    <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full 
+                      flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity 
+                      duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                  </div>
+                  <div class="mt-2">
+                    <h4 class="text-base font-bold text-white">${lista.nombre}</h4>
+                    <p class="text-sm text-neutral-400 hover:underline">${lista.alt}</p>
+                  </div>
+                </div>
+              `;
+
+              contenedorEstaciones.appendChild(section);
+            });
+
+            lucide.createIcons?.();
+          </script>
+
+<!-- 5. Scroll lista de destacadas -->
+<script>
+  function scrolllistasdestacadas(scrollAmount) {
+    const container = document.getElementById("scrolllistasdestacadas");
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  }
+</script>
+
+<script>
+  const contenedorListas = document.getElementById("listasdestacadas");
+
+  listasdestacadas.forEach((lista) => {
+    const section = document.createElement("section");
+    section.className = "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
+
+    section.innerHTML = `
+      <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+        <div class="relative full">
+          <img src="${lista.imagen}" alt="${lista.alt}" class="rounded-md w-full h-auto" />
+          <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full 
+            flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-2">
+          <h4 class="text-base font-bold text-white">${lista.nombre}</h4>
+          <p class="text-sm text-neutral-400 hover:underline">${lista.alt}</p>
+        </div>
+      </div>
+    `;
+
+    contenedorListas.appendChild(section);
+  });
+
+  lucide.createIcons?.();
+</script>
+
+<!-- 6. Scroll de flechas de mas escuchados -->
+    <script>
+      function scrollmasescuchado(scrollAmount) {
+        const container = document.getElementById("scrollmasescuchado");
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    </script>
+  <script>
+    const contenedormasescuchado = document.getElementById("masescuchado");
+
+    masescuchado.forEach((item) => {
+      const section = document.createElement("section");
+      section.className = "w-[200px] h-full shrink-0 p-4 rounded-lg bg-neutral-900 hover:bg-neutral-800 group relative";
+
+      section.innerHTML = `
+        <div class="group w-40 cursor-pointer rounded-lg hover:bg-neutral-800 p-0 transition duration-200">
+          <div class="relative full">
+            <img src="${item.imagen}" alt="${item.alt}" class="rounded-md w-full h-auto" />
+            <button class="absolute bottom-4 right-2 bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-black" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+            </button>
+          </div>
+          <div class="mt-2">
+            <h4 class="text-base font-bold text-white">${item.nombre}</h4>
+            <p class="text-sm text-neutral-400 hover:underline">${item.alt}</p>
+          </div>
+        </div>
+      `;
+      contenedormasescuchado.appendChild(section);
+    });
+
+    lucide.createIcons?.();
+
+    </script>
+
+</body>
 </html>
