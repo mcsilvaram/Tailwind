@@ -312,6 +312,13 @@
 
 <!-- 3. Scroll de flechas de Albumes Populares -->
     <script>
+      function scrollalbumespopulares(scrollAmount) {
+        const container = document.getElementById("scrollalbumespopulares"); 
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    </script>
+
+    <script>
             const contenedoralbumespopulares = document.getElementById("albumespopulares");
 
             albumespopulares.forEach((album) => {
@@ -342,7 +349,14 @@
           lucide.createIcons?.();
          </script>
 
-<!-- Scroll de Estaciones populares -->
+<!-- 4. Scroll de Estaciones populares -->
+        <script>
+          function scrollEstaciones(scrollAmount) {
+            const container = document.getElementById("scrollEstacionesContainer");
+            container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+          }
+        </script> 
+
           <script>
             const contenedorEstaciones = document.getElementById("estaciones");
 
@@ -376,6 +390,13 @@
           </script>
 
 <!-- 5. Scroll lista de destacadas -->
+      <script>    
+       function scrolllistasdestacadas(scrollAmount) {
+          const container = document.getElementById("scrolllistasdestacadas");
+          container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      </script>
+      
       <script>
         const contenedorlistasdestacadas = document.getElementById("listasdestacadas");
 
@@ -408,7 +429,7 @@
         lucide.createIcons?.();
       </script>
 
-<!-- 5. Scroll de flechas de mas escuchados -->
+<!-- 6. Scroll de flechas de mas escuchados -->
   <script>
     const contenedormasescuchado = document.getElementById("masescuchado");
 
